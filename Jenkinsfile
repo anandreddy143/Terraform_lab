@@ -1,13 +1,12 @@
-properties([parameters([choice(choices: ['us-east-2', 'us-east-1', 'us-west-1'], description: 'Select in which region you want to deploy the resource ??', name: 'region')])])
+
 pipeline{
-    
-    agent any 
+     agent any 
     
     stages{
         
         stage('git checkout'){
             steps{
-                git branch: 'main', url: 'https://github.com/vikash-kumar01/terraform_lab.git'
+                git branch: 'master', url: 'https://github.com/anandreddy143/Terraform_lab.git'
             }
         }
         stage('terraform init'){
@@ -17,17 +16,12 @@ pipeline{
         }
          stage('terraform plan'){
             steps{
-                sh "terraform plan -var 'region=${params.region}'"
+                sh 'terraform plan'
             }
         }
          stage('terraform apply'){
             steps{
-                 sh "terraform apply -var 'region=${params.region}' --auto-approve"
-            }
-        }
-        stage('terraform destroy'){
-            steps{
-              sh "terraform destroy -var 'region=${params.region}' --auto-approve"
+                 sh 'terraform apply --auto-approve'
             }
         }
     }

@@ -1,5 +1,6 @@
 provider "aws" {
-  profile = "myaws"
+  source = "harshicop/aws"
+  version = "v4.67.0"
   region  = "us-east-2"
 }
 

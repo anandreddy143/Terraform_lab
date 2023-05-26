@@ -5,6 +5,7 @@ provider "aws" {
 }
 
 module "s3" {
+    source = "default"
     #bucket name should be unique
     bucket_name = "dileep123"       
 }

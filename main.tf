@@ -3,9 +3,11 @@ provider "aws" {
     secret_key = "9kxBpnnuiOAoIUb+BLfbGsTv40mnl0kcauJ1jqG3"
     region = "us-east-2"
 }
+resource "aws_s3_bucket" "b" {
+  bucket = "dileep123"
 
-module "s3" {
-    source = "s3://dileep1290/Dileep/"
-    #bucket name should be unique
-    bucket_name = "dileep123"       
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
 }

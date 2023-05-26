@@ -1,21 +1,10 @@
-terraform{
-  required providers{
-  aws = {
-     source = "hashicorp/aws"
-     version = "v4.67.0"
-  }
-}
-}
-    
 provider "aws" {
- region  = "us-east-1"
+    access_key = "AKIATW3OU42LLCPMGPE6"
+    secret_key = "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"
+    region = "us-east-2"
 }
-resource "aws_s3_bucket" "b" {
-  bucket = "myawsbucket1290"
-  acl    = "private"
 
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
-  }
+module "s3" {
+    #bucket name should be unique
+    bucket_name = "dileep123"       
 }
